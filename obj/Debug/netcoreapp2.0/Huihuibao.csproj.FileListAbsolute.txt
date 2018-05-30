@@ -5,8 +5,8 @@ c:\users\khalil\source\repos\Huihuibao\Huihuibao\bin\Debug\netcoreapp2.0\Huihuib
 c:\users\khalil\source\repos\Huihuibao\Huihuibao\bin\Debug\netcoreapp2.0\Huihuibao.pdb
 c:\users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\Huihuibao.csprojResolveAssemblyReference.cache
 c:\users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\Huihuibao.csproj.CoreCompileInputs.cache
-c:\users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 c:\users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\Huihuibao.AssemblyInfoInputs.cache
 c:\users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\Huihuibao.AssemblyInfo.cs
 c:\users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\Huihuibao.dll
 c:\users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\Huihuibao.pdb
+C:\Users\khalil\source\repos\Huihuibao\Huihuibao\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs

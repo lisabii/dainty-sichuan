@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Huihuibao.Models;
+using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace Huihuibao.Data
 {
@@ -13,6 +15,19 @@ namespace Huihuibao.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+        public static IConfiguration Configuration { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            string path = Directory.GetCurrentDirectory();
+            var builder = new ConfigurationBuilder()
+            .SetBasePath(path)
+            .AddJsonFile("appsettings.json");
+
+            Configuration = builder.Build();
+
+            optionsBuilder.UseMySQL(Configuration["MySqlUrl"]);
         }
 
         public DbSet<TimeTable> TimeTables { get; set; }
