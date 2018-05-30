@@ -45,7 +45,7 @@ namespace Huihuibao.Controllers
             DateTime nextMonday = today.AddDays(daysUntilMonday);
             List<DateTime> dates = new List<DateTime>();
 
-            var timetable = await _context.TimeTables.Include(x => x.ApplicationUser).Where(x => x.DateTime <= nextMonday.AddDays(7) && x.DateTime >= nextMonday).ToListAsync();
+            var timetable = await _context.TimeTables.Include(x => x.ApplicationUser).Where(x => x.DateTime <= nextMonday.AddDays(6) && x.DateTime >= nextMonday).ToListAsync();
 
             for (int i =0; i< 7; i++)
             {
