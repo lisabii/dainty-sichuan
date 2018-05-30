@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 75px;
     padding-bottom: 20px;
     font-family: 'Raleway', sans-serif;
 }
@@ -39,10 +39,30 @@
     margin-top: 100px
 }
 
+input[type=checkbox]{
+    width:20px;
+    height:20px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
+    }
+    html {
+        font-size: 15px;
+    }
+    .table th, .table td{
+        padding: 0.50em;
+    }
+    .card-body {
+        padding: 0.75em;
+    }
+    .table{
+        margin-bottom: 0rem;
+    }
+    .card-header {
+        padding: 0.3rem 1.25rem;
     }
 }

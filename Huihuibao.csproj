@@ -4,7 +4,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-Huihuibao-79A6D566-3F7C-41CD-99BD-A11EB703921A</UserSecretsId>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Data\Migrations\20180518052510_init.cs" />
     <Compile Remove="Data\Migrations\20180518052510_init.Designer.cs" />

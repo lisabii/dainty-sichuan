@@ -1,0 +1,106 @@
+﻿@model List<TimeTable>
+
+@{
+    int itemNo = 0;
+    List<List<int>> applied = (List<List<int>>)ViewData["Applied"];
+    List<List<int>> notApplied = (List<List<int>>)ViewData["NotApplied"];
+    List<ApplicationUser> absents = (List<ApplicationUser>)ViewData["Absent"];
+}
+
+    @for (int i = 0; i < 7; i++)
+    {
+        <div class="card">
+            <div class="card-header" id="heading-@i">
+                <div class="m-2">
+                    <a class="card-link" data-toggle="collapse" href="#collapse-@i" aria-expanded="false" aria-controls="collapse-@i">
+                        @ViewBag.Dates[i].ToString("D")
+                    </a>
+                </div>
+            </div>
+            <div id="collapse-@i" class="collapse" aria-labelledby="heading-@i">
+                <div class="card-body">
+
+                    @*<div>
+                            <input type="hidden" asp-for="@Model[i].TimeTableId" />
+                            <input type="hidden" asp-for="@Model[i].DateTime" />
+                            <input type="hidden" asp-for="@Model[i].ApplicationUserId" />
+                            <input type="hidden" asp-for="@Model[i].Applied" />
+                            <input asp-for="@Model[i].Assigned" />
+                        </div>*@
+
+                    <table class="table">
+                            <tr>
+                                <th>
+                                    Applied
+                                </th>
+                                <th>
+                                    Assigned
+                                </th>
+                            </tr>
+
+                        <tbody>
+
+                            @for (int no = itemNo; no < itemNo + applied[i].Count; no++)
+                            {
+
+                                TimeTable timeTable = @Model.Find(x => x.TimeTableId == applied[i][no - itemNo]);
+
+                                <tr>
+                                    <td>
+                                        @timeTable.ApplicationUser.UserName
+                                    </td>
+                                    <td>
+                                        @timeTable.Assigned
+                                    </td>
+                                </tr>
+                            }
+                            @{
+                                itemNo += applied[i].Count;
+                            }
+                                <tr>
+                                    <th>
+                                        Not Applied
+                                    </th>
+
+                                    <th>
+                                        Assigned
+                                    </th>
+                                </tr>
+
+                            @for (int no = itemNo; no < itemNo + notApplied[i].Count; no++)
+                            {
+
+                                TimeTable timeTable = @Model.Find(x => x.TimeTableId == notApplied[i][no - itemNo]);
+
+                                <tr>
+                                    <td>
+                                        @timeTable.ApplicationUser.UserName
+                                    </td>
+                                    <td>
+                                        @timeTable.Assigned
+                                    </td>
+                                </tr>
+                            }
+                            @{
+                                itemNo += notApplied[i].Count;
+                            }
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="my-3">
+        <h3>Staffs who have not applied for work</h3>
+        <ul>
+        @foreach(var user in absents)
+        {
+            <li>@user.UserName</li>
+        }
+            </ul>
+        </div>
