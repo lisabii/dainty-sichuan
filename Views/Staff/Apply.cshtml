@@ -1,0 +1,56 @@
+﻿@model List<Huihuibao.Models.TimeTable>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-action="Check">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].DateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Applied)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Assigned)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @for (int i = 0; i < 7; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(Model => Model[i].DateTime)
+                    </td>
+                    <td>
+                        <input type="hidden" asp-for="@Model[i].TimeTableId" />
+                        <input type="hidden" asp-for="@Model[i].DateTime"/>
+                        <input type="hidden" asp-for="@Model[i].ApplicationUserId" />
+                        <input type="hidden" asp-for="@Model[i].Assigned" />
+                        <input asp-for="@Model[i].Applied" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => modelItem[i].Assigned)
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</form>
